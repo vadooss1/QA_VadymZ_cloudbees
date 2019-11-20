@@ -52,7 +52,7 @@ public class SalariesPage extends MainPage {
     }
 
     public SalariesPage shouldSeeSelectedJob(String job) {
-        assertEquals(job, citySelect.getSelectedText());
+        assertEquals(job, jobSelect.getSelectedText());
         return this;
     }
 

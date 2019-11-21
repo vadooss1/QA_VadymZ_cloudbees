@@ -21,6 +21,11 @@ public class SalariesPage extends MainPage {
     private SelenideElement periodSelect = $("[name='period']");
     private SelenideElement slider = salariesForm.$(".ui-slider-range");
 
+    public SalariesPage setSliderRange(int offsetX, int offsetY){
+        slider.click(offsetX, offsetY);
+        return this;
+    }
+
     public SalariesPage shouldSeeThatSliderIsSetCorrectly(String expectedValue) {
         slider.shouldHave(Condition.attribute("style", expectedValue));
         return this;
@@ -71,5 +76,9 @@ public class SalariesPage extends MainPage {
         return this;
     }
 
+    public SalariesPage shouldSeeMedianSalary(String salary) {
+        $(".salarydec-results-median .num").shouldHave(Condition.exactText(salary));
+        return this;
+    }
 
 }

@@ -36,6 +36,42 @@ public class DouTest extends TestBase {
 
     }
 
+    @Test
+    public void javaSeniorSoftwareEngineerMaxSalaryFor3yearsExperience(){
+        new MainPage().open()
+                .navigateByClickingOnHeaderTab(new SalariesPage(), Tabs.SALARIES)
+                .setCity("вся Украина")
+                .setJobPosition("Software Engineer")
+                .setProgrammingLanguage("Java")
+                .setPeriod("июнь-июль 2019")
+                .setSliderRange(-60,0)
+                .shouldSeeSelectedCity("вся Украина")
+                .shouldSeeSelectedJob("Software Engineer")
+                .shouldSeeSelectedLanguage("Java")
+                .shouldSeeSelectedPeriod("июнь-июль 2019")
+                .shouldSeeMaxSalary("3000")
+                .shouldSeeThatSliderIsSetCorrectly("left: 30%; width: 70%;");
+    }
+
+    @Test
+    public void javaSeniorSoftwareEngineerAverageSalaryFor2_5yearsExperience(){
+        new MainPage().open()
+                .navigateByClickingOnHeaderTab(new SalariesPage(), Tabs.SALARIES)
+                .setCity("вся Украина")
+                .setJobPosition("Software Engineer")
+                .setProgrammingLanguage("Java")
+                .setPeriod("июнь-июль 2019")
+                .setSliderRange(100,0)
+                .setSliderRange(20,0)
+                .setSliderRange(-20,0)
+                .shouldSeeSelectedCity("вся Украина")
+                .shouldSeeSelectedJob("Software Engineer")
+                .shouldSeeSelectedLanguage("Java")
+                .shouldSeeSelectedPeriod("июнь-июль 2019")
+                .shouldSeeMedianSalary("2200")
+                .shouldSeeThatSliderIsSetCorrectly("left: 20%; width: 30%;");
+    }
+
     @BeforeMethod(alwaysRun = true)
     public void before() {
         createDriver();
